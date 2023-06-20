@@ -49,18 +49,21 @@ const App = () => {
         <section>
           <span className="widget">
             <h4 className={color.local}>{localSender}'s color</h4>
-            <ColorChoice setColor={newColor => changeSenderColor('local', newColor)} />
+            <ColorChoice setColorCallback={newColor => changeSenderColor('local', newColor)} />
           </span>
           <h2 id="heartWidget">{totalLikedMessages} ❤️s</h2>
           <span className="widget">
             <h4 className={color.remote}>{remoteSender}'s color</h4>
-            <ColorChoice setColor={newColor => changeSenderColor('remote', newColor)} />
+            <ColorChoice setColorCallback={newColor => changeSenderColor('remote', newColor)} />
           </span>
         </section>
       </header>
       <main>
         <ChatLog 
           entries={chatData}
+          localSender={localSender}
+          localColor={color.local}
+          remoteColor={color.remote}
           onHeartClick={fillHeart}
         />
       </main>
