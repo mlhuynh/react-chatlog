@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+
 const ColorChoice = (props) => {
     return(
         <section>
@@ -10,7 +11,7 @@ const ColorChoice = (props) => {
             <button onClick={() => props.setColorCallback('blue')}>🔵</button>
             <button onClick={() => props.setColorCallback('purple')}>🟣</button>
         </section>
-    )
+    );
 };
 
 ColorChoice.prototype = {

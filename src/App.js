@@ -5,6 +5,7 @@ import ChatLog from './components/ChatLog.js';
 import { useState } from 'react';
 import ColorChoice from './components/ColorChoice';
 
+
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages)
 
@@ -32,7 +33,7 @@ const App = () => {
     if (entry.sender !== localSender) {
       remoteSender = entry.sender;
     }
-  }
+  };
 
   // Establish default sender colors
   const [color, setColor] = useState({ local: 'blue', remote: 'green'});
