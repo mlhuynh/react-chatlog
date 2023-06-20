@@ -14,6 +14,7 @@ const ColorChoice = (props) => {
     );
 };
 
+//Set ColorChoice object to inherit properties/methods from ColorChoice.prototype
 ColorChoice.prototype = {
     setColorCallback: PropTypes.func
 };

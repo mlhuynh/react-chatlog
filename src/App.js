@@ -9,6 +9,7 @@ import ColorChoice from './components/ColorChoice';
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages)
 
+  // Process message entries when like button is selected
   const fillHeart = (id) => {
     setChatData(chatData => chatData.map(entry => {
       if (entry.id === id) {
@@ -19,6 +20,7 @@ const App = () => {
     }))
   };
 
+  // Count liked messages and tally total
   const countFilledHearts = (chatData) => {
     return chatData.reduce((total, entry) => {
       return entry.liked ? total + 1 : total;
@@ -27,6 +29,7 @@ const App = () => {
 
   const totalLikedMessages = countFilledHearts(chatData);
 
+  // Determine local and remote sender
   const localSender = chatMessages[0]['sender'];
   let remoteSender = '';
   for (const entry of chatMessages) {

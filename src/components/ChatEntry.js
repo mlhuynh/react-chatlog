@@ -6,6 +6,7 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
 
+  //Assign class name for CSS styling based on whether sender is local or remote.
   let entryClass = 'chat-entry remote';
   if (props.sender === props.localSender) {
     entryClass = 'chat-entry local';
