@@ -42,6 +42,7 @@
 }
 
 #App #heartWidget {
+  display: inline-block;
   font-size: 1.5em;
   margin: 1em
 }

@@ -3,6 +3,7 @@ import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog.js';
 import { useState } from 'react';
+import ColorChoice from './components/ColorChoice';
 
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages)
@@ -33,18 +34,33 @@ const App = () => {
     }
   }
 
+  // Establish default sender colors
+  const [color, setColor] = useState({ local: 'blue', remote: 'green'});
+
+  // Change sender colors
+  const changeSenderColor = (sender, newColor) => {
+    setColor (oldColor => ({ ...oldColor, [sender]: newColor}));
+  };
+
   return (
     <div id="App">
       <header>
-        <h1>Chat between {localSender} and {remoteSender}</h1>
+        <h1>Chat between <span className={color.local}>{localSender}</span> and <span className={color.remote}>{remoteSender}</span></h1>
         <section>
-          <h2>{totalLikedMessages} ❤️s</h2>
+          <span className="widget">
+            <h4 className={color.local}>{localSender}'s color</h4>
+            <ColorChoice setColor={newColor => changeSenderColor('local', newColor)} />
+          </span>
+          <h2 id="heartWidget">{totalLikedMessages} ❤️s</h2>
+          <span className="widget">
+            <h4 className={color.remote}>{remoteSender}'s color</h4>
+            <ColorChoice setColor={newColor => changeSenderColor('remote', newColor)} />
+          </span>
         </section>
       </header>
       <main>
-
         <ChatLog 
-          entries={chatData} 
+          entries={chatData}
           onHeartClick={fillHeart}
         />
       </main>
