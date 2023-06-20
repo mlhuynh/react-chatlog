@@ -10,9 +10,9 @@ const App = () => {
   const fillHeart = (id) => {
     setChatData(chatData => chatData.map(entry => {
       if (entry.id === id) {
-        return {...entry, liked: !entry.liked}
+        return {...entry, liked: !entry.liked};
       } else {
-        return entry
+        return entry;
       }
     }))
   };
