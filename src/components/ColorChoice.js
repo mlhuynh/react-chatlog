@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 const ColorChoice = (props) => {
     return(
         <section>
-            <button onClick={() => props.setColor('red')}>🔴</button>
-            <button onClick={() => props.setColor('orange')}>🟠</button>
-            <button onClick={() => props.setColor('yellow')}>🟡</button>
-            <button onClick={() => props.setColor('green')}>🟢</button>
-            <button onClick={() => props.setColor('blue')}>🔵</button>
-            <button onClick={() => props.setColor('purple')}>🟣</button>
+            <button onClick={() => props.setColorCallback('red')}>🔴</button>
+            <button onClick={() => props.setColorCallback('orange')}>🟠</button>
+            <button onClick={() => props.setColorCallback('yellow')}>🟡</button>
+            <button onClick={() => props.setColorCallback('green')}>🟢</button>
+            <button onClick={() => props.setColorCallback('blue')}>🔵</button>
+            <button onClick={() => props.setColorCallback('purple')}>🟣</button>
         </section>
     )
 };
 
 ColorChoice.prototype = {
-    setColor: PropTypes.func
+    setColorCallback: PropTypes.func
 };
 
 export default ColorChoice;
