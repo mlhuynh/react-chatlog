@@ -13,6 +13,9 @@ const ChatLog = (props) => {
         timeStamp = {entry.timeStamp}
         liked = {entry.liked}
         onHeartClick = {props.onHeartClick}
+        localColor = {props.localColor}
+        remoteColor = {props.remoteColor}
+        localSender = {props.localSender}
       />
     ))}
   </ul>
@@ -29,7 +32,10 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ).isRequired,
-  onHeartClick: PropTypes.func.isRequired
+  onHeartClick: PropTypes.func,
+  localColor: PropTypes.string,
+  remoteColor: PropTypes.string,
+  localSender: PropTypes.string
 };
 
 export default ChatLog;
