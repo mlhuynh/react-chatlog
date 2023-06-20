@@ -19,7 +19,7 @@ const App = () => {
 
   const countFilledHearts = (chatData) => {
     return chatData.reduce((total, entry) => {
-      return total + (entry.liked ? 1 : 0)
+      return entry.liked ? total + 1 : total;
     }, 0)
   };
 
