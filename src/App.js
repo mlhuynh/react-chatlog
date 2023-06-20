@@ -25,13 +25,24 @@ const App = () => {
 
   const totalLikedMessages = countFilledHearts(chatData);
 
+  const localSender = chatMessages[0]['sender'];
+  let remoteSender = '';
+  for (const entry of chatMessages) {
+    if (entry.sender !== localSender) {
+      remoteSender = entry.sender;
+    }
+  }
+
   return (
     <div id="App">
       <header>
-        <h1>Sapphire Chat Log</h1>
-        <h2>{totalLikedMessages} ❤️s</h2>
+        <h1>Chat between {localSender} and {remoteSender}</h1>
+        <section>
+          <h2>{totalLikedMessages} ❤️s</h2>
+        </section>
       </header>
       <main>
+
         <ChatLog 
           entries={chatData} 
           onHeartClick={fillHeart}
